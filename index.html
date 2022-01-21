@@ -16,6 +16,7 @@
     <style>
       .terra-link:hover {
         color: #aa5031;
+        cursor: pointer;
       }
       .terra {
         color: #7a1f00;
@@ -31,27 +32,28 @@
     >
       <nav>
         <div class="flex justify-between">
-          <h1 class="px-4 py-2 text-4xl uppercase text-gray-600">
-            Johan Magnusson
-          </h1>
+          <h1 class="p-4 text-4xl uppercase text-gray-600">Johan Magnusson</h1>
           <ul class="flex justify-end text-lg">
             <li
-              class="px-4 py-2 terra-link"
+              class="p-4 terra-link"
               x-bind:class="{ 'terra': selected === 'option-1' }"
+              @click="selected = 'option-1'"
             >
-              <a href="#option-1" @click="selected = 'option-1'">VERK</a>
+              <a href="#art">VERK</a>
             </li>
             <li
-              class="px-4 py-2 terra-link"
+              class="p-4 terra-link"
               x-bind:class="{ 'terra': selected === 'option-2' }"
+              @click="selected = 'option-2'"
             >
-              <a href="#option-2" @click="selected = 'option-2'">OM MIG</a>
+              <a href="#about">OM MIG</a>
             </li>
             <li
-              class="px-4 py-2 terra-link"
+              class="p-4 terra-link"
               x-bind:class="{ 'terra': selected === 'option-3' }"
+              @click="selected = 'option-3'"
             >
-              <a href="#option-3" @click="selected = 'option-3'">KONTAKT</a>
+              <a href="#contact">KONTAKT</a>
             </li>
           </ul>
         </div>
