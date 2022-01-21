@@ -1,7 +1,94 @@
-<html>
-<body>
-<h1>
-  Hej :)
-</h1>
-</body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .terra-link:hover {
+        color: #aa5031;
+      }
+      .terra {
+        color: #7a1f00;
+      }
+    </style>
+  </head>
+  <body style="font-family: 'Poppins', sans-serif">
+    <div
+      class="bg-white text-gray-700"
+      x-data="{ 
+        selected: 'option-1', 
+    }"
+    >
+      <nav>
+        <div class="flex justify-between">
+          <h1 class="px-4 py-2 text-4xl uppercase text-gray-600">
+            Johan Magnusson
+          </h1>
+          <ul class="flex justify-end text-lg">
+            <li
+              class="px-4 py-2 terra-link"
+              x-bind:class="{ 'terra': selected === 'option-1' }"
+            >
+              <a href="#option-1" @click="selected = 'option-1'">VERK</a>
+            </li>
+            <li
+              class="px-4 py-2 terra-link"
+              x-bind:class="{ 'terra': selected === 'option-2' }"
+            >
+              <a href="#option-2" @click="selected = 'option-2'">OM MIG</a>
+            </li>
+            <li
+              class="px-4 py-2 terra-link"
+              x-bind:class="{ 'terra': selected === 'option-3' }"
+            >
+              <a href="#option-3" @click="selected = 'option-3'">KONTAKT</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div
+        x-show="selected === 'option-1'"
+        x-transition:enter.opacity.duration.750ms
+        class="p-4"
+      >
+        <h2 class="text-xl mb-4">
+          Here, you have the content of <strong>Option 1</strong>
+        </h2>
+        <p class="mb-2">Qui ipsorum...</p>
+      </div>
+
+      <div
+        x-show="selected === 'option-2'"
+        x-transition:enter.opacity.duration.750ms
+        class="p-4"
+      >
+        <h2 class="text-xl mb-4">
+          Here, <strong>Option 2</strong> contents are shown
+        </h2>
+        <p class="mb-2">Qui ipsorum...</p>
+      </div>
+
+      <div
+        x-show="selected === 'option-3'"
+        x-transition:enter.opacity.duration.750ms
+        class="p-4"
+      >
+        <h2 class="text-xl mb-4">
+          And here, only <strong>Option 3</strong> contents should be displayed
+        </h2>
+        <p>Qui ipsorum...</p>
+      </div>
+    </div>
+  </body>
 </html>
