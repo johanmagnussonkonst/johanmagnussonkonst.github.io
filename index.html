@@ -25,31 +25,33 @@
   </head>
   <body class="h-screen" style="font-family: 'Poppins', sans-serif">
     <div
-      class="h-full bg-white text-gray-700"
+      class="h-full bg-white text-gray-700 flex flex-col"
       x-data="{ 
         selected: 'option-1', 
     }"
     >
       <nav>
         <div class="flex justify-between">
-          <h1 class="p-4 text-4xl uppercase text-gray-600">Johan Magnusson</h1>
-          <ul class="flex justify-end text-lg">
+          <h1 class="p-4 text-4xl 2xl:text-8xl uppercase text-gray-600">
+            Johan Magnusson
+          </h1>
+          <ul class="flex justify-end items-end lg:items-start text-2xl">
             <li
-              class="p-4 terra-link"
+              class="p-4 terra-link whitespace-nowrap"
               x-bind:class="{ 'terra': selected === 'option-1' }"
               @click="selected = 'option-1'"
             >
               <a href="#art">VERK</a>
             </li>
             <li
-              class="p-4 terra-link"
+              class="p-4 terra-link whitespace-nowrap"
               x-bind:class="{ 'terra': selected === 'option-2' }"
               @click="selected = 'option-2'"
             >
               <a href="#about">OM MIG</a>
             </li>
             <li
-              class="p-4 terra-link"
+              class="p-4 terra-link whitespace-nowrap"
               x-bind:class="{ 'terra': selected === 'option-3' }"
               @click="selected = 'option-3'"
             >
@@ -62,7 +64,7 @@
       <div
         x-show="selected === 'option-1'"
         x-transition:enter.opacity.duration.750ms
-        class="p-4"
+        class="p-4 py-8 box-content"
       >
         <h2 class="text-xl mb-4">
           Here, you have the content of <strong>Option 1</strong>
@@ -74,18 +76,17 @@
       <div
         x-show="selected === 'option-2'"
         x-transition:enter.opacity.duration.750ms
-        class="p-4"
+        class="p-4 py-8 box-content flex flex-col flex-1 relative"
       >
-        <h2 class="text-xl mb-4">
-          Here, <strong>Option 2</strong> contents are shown
-        </h2>
-        <p class="mb-2">Qui ipsorum...</p>
+        <p class="flex-1 relative">
+          <object class="w-full h-full" data="about.html"></object>
+        </p>
       </div>
 
       <div
         x-show="selected === 'option-3'"
         x-transition:enter.opacity.duration.750ms
-        class="p-4"
+        class="p-4 py-8 box-content"
       >
         <h2 class="text-xl mb-4">
           And here, only <strong>Option 3</strong> contents should be displayed
