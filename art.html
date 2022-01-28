@@ -42,6 +42,7 @@
                 this.galleryTitle = json.title;
                 this.galleryDate = json.date;
                 this.galleryDescription = json.description;
+                this.galleryImage = json.image;
               });
           },
         };
@@ -49,30 +50,33 @@
     </script>
     <div x-data="exhibitionLoader()" x-init="loadExhibition()">
       <!-- Hero Image -->
-      <div
-        x-if="galleryTitle"
-        class="w-full max-h-96 relative overflow-hidden flex justify-center"
-      >
+      <template x-if="galleryTitle">
         <div
-          class="h-full max-h-96 bg-slate-100 border-2 border-gray-700 overflow-hidden relative"
+          class="w-full max-h-96 relative overflow-hidden flex justify-center"
         >
           <div
-            class="absolute uppercase bottom-0 px-4 py-2 w-full bg-white opacity-80"
+            class="h-full max-h-96 bg-slate-100 border-2 border-gray-700 overflow-hidden relative"
           >
-            <a
-              class="terra-link"
-              href="https://www.galleriekdahl.se/"
-              target="_blank"
+            <div
+              class="absolute uppercase bottom-0 px-4 py-2 w-full bg-white opacity-80"
             >
-              <h1 class="text-3xl md:text-5xl transition-[font-size]">
-                Galleri Ekdahl
-              </h1>
-              <h3 class="text-md md:text-2xl px-2">28 jan - 12 feb</h3>
-            </a>
+              <a
+                class="terra-link"
+                href="https://www.galleriekdahl.se/"
+                target="_blank"
+              >
+                <h1
+                  class="text-3xl md:text-5xl transition-[font-size]"
+                  x-html="galleryTitle"
+                ></h1>
+                <h3 class="text-md md:text-2xl px-2" x-html="galleryDate"></h3>
+              </a>
+            </div>
+            <img class="" :src="image" alt="Current Exhibition" />
           </div>
-          <img class="" src="assets/hero.png" alt="Current Exhibition" />
         </div>
-      </div>
+      </template>
+
       <!-- Image Sections -->
     </div>
   </body>
