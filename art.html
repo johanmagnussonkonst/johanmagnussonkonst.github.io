@@ -8,7 +8,22 @@
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .terra-link:hover {
+        color: #aa5031;
+        fill: #aa5031;
+        cursor: pointer;
+      }
+      .terra {
+        color: #7a1f00;
+        fill: #7a1f00;
+      }
+    </style>
   </head>
   <body
     class="h-full overflow-auto relative"
@@ -22,9 +37,15 @@
           <div
             class="absolute uppercase bottom-0 px-4 py-2 w-full bg-white opacity-80"
           >
-            <a href="https://www.galleriekdahl.se/" target="_blank">
-              <h1 class="text-3xl md:text-5xl">Galleri Ekdahl</h1>
-              <h3 class="text-lg md:text-2xl px-2">28 jan - 12 feb</h3>
+            <a
+              class="terra-link"
+              href="https://www.galleriekdahl.se/"
+              target="_blank"
+            >
+              <h1 class="text-3xl md:text-5xl transition-[font-size]">
+                Galleri Ekdahl
+              </h1>
+              <h3 class="text-md md:text-2xl px-2">28 jan - 12 feb</h3>
             </a>
           </div>
           <img class="" src="assets/hero.png" alt="Current Exhibition" />
