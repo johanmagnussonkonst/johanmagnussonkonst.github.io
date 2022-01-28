@@ -29,8 +29,24 @@
     class="h-full overflow-auto relative"
     style="font-family: 'Poppins', sans-serif"
   >
+    <script>
+      function pokeSearch() {
+        console.log("tests");
+
+        fetch("CurrentExhibition.json")
+          .then((response) => response.json())
+          .then((json) => console.log(json));
+      }
+      window.onload = function () {
+        pokeSearch();
+      };
+    </script>
     <div>
-      <div class="w-full max-h-96 relative overflow-hidden flex justify-center">
+      <!-- Hero Image -->
+      <div
+        x-data="pokeSearch()"
+        class="w-full max-h-96 relative overflow-hidden flex justify-center"
+      >
         <div
           class="h-full max-h-96 bg-slate-100 border-2 border-gray-700 overflow-hidden relative"
         >
@@ -51,6 +67,7 @@
           <img class="" src="assets/hero.png" alt="Current Exhibition" />
         </div>
       </div>
+      <!-- Image Sections -->
     </div>
   </body>
 </html>
