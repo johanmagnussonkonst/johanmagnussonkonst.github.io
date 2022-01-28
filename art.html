@@ -30,21 +30,27 @@
     style="font-family: 'Poppins', sans-serif"
   >
     <script>
-      function pokeSearch() {
-        console.log("tests");
-
-        fetch("CurrentExhibition.json")
-          .then((response) => response.json())
-          .then((json) => console.log(json));
+      function exhibitionLoader() {
+        return {
+          galleryTitle: "",
+          galleryDate: "",
+          galleryDescription: "",
+          loadExhibition() {
+            fetch("CurrentExhibition.json")
+              .then((response) => response.json())
+              .then((json) => {
+                this.galleryTitle = json.title;
+                this.galleryDate = json.date;
+                this.galleryDescription = json.description;
+              });
+          },
+        };
       }
-      window.onload = function () {
-        pokeSearch();
-      };
     </script>
-    <div>
+    <div x-data="exhibitionLoader()" x-init="loadExhibition()">
       <!-- Hero Image -->
       <div
-        x-data="pokeSearch()"
+        x-if="galleryTitle"
         class="w-full max-h-96 relative overflow-hidden flex justify-center"
       >
         <div
