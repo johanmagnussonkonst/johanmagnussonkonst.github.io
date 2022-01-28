@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .terra-link:hover {
+        color: #aa5031;
+        fill: #aa5031;
+        cursor: pointer;
+      }
+      .terra {
+        color: #7a1f00;
+        fill: #7a1f00;
+      }
+    </style>
+  </head>
+  <body
+    class="h-full overflow-auto relative"
+    style="font-family: 'Poppins', sans-serif"
+  >
+    <script>
+      function exhibitionLoader() {
+        return {
+          galleryTitle: "",
+          galleryDate: "",
+          galleryDescription: "",
+          galleryImage: "",
+          galleryLink: "",
+          loadExhibition() {
+            fetch("CurrentExhibition.json")
+              .then((response) => response.json())
+              .then((json) => {
+                this.galleryTitle = json.title;
+                this.galleryDate = json.date;
+                this.galleryDescription = json.description;
+                this.galleryImage = json.image;
+                this.galleryLink = json.link;
+              });
+          },
+        };
+      }
+
+      function imageLoader() {
+        return {
+          sections: ["Title 1", "Title 2", "Title 3"],
+        };
+      }
+    </script>
+    <!-- Hero Image -->
+    <div x-data="exhibitionLoader()" x-init="loadExhibition()">
+      <template x-if="galleryTitle">
+        <div
+          class="w-full max-h-96 relative overflow-hidden flex justify-center"
+        >
+          <div
+            class="h-full max-h-96 bg-slate-100 border-2 border-gray-700 overflow-hidden relative"
+          >
+            <div
+              class="absolute uppercase bottom-0 px-4 py-2 w-full bg-white opacity-80"
+            >
+              <a class="terra-link" :href="galleryLink" target="_blank">
+                <h1
+                  class="text-3xl md:text-5xl transition-[font-size]"
+                  x-text="galleryTitle"
+                ></h1>
+                <h3 class="text-md md:text-2xl px-2" x-text="galleryDate"></h3>
+                <p
+                  class="text-md md:text-xl px-2"
+                  x-text="galleryDescription"
+                ></p>
+              </a>
+            </div>
+            <img class="" :src="galleryImage" alt="Current Exhibition" />
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <!-- Image Sections -->
+    <div class="mt-8 bg-slate-100">
+      <ul class="p-2" x-data="imageLoader()">
+        <template x-for="color in sections">
+          <li>
+            <h1 class="text-2xl" x-text="color"></h1>
+            <div>Images here</div>
+          </li>
+        </template>
+      </ul>
+    </div>
+  </body>
+</html>
