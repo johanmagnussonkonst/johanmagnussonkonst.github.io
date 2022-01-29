@@ -71,6 +71,19 @@
         };
       }
 
+      function imageLoader2() {
+        return {
+          images: {
+            "En titel": [
+              "A love supreme (the last code).png",
+              "A love supreme (the last code).png",
+              "title 1.png",
+            ],
+            "Some title": ["skrank.png", "timmarna.png"],
+          },
+        };
+      }
+
       function buildImgUrl(title, image) {
         return {
           url: "art/" + title + "/" + image,
@@ -109,9 +122,9 @@
       </div>
 
       <!-- Image Sections -->
-      <div x-data="imageLoader()" class="mt-4">
+      <div x-data="imageLoader2()" class="mt-4">
         <div class="flex justify-center">
-          <ul class="text-gray-700 p-2" x-data="getFolderNames()">
+          <ul class="text-gray-700 p-2">
             <template x-if="images !== {}">
               <template x-for="title in Object.keys(images)">
                 <li class="p-4 rounded-lg">
