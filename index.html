@@ -90,25 +90,15 @@
         <object class="w-full h-full" data="art.html"></object>
       </div>
 
-      <template x-if="selected === 'option-2'">
-        <div
-          x-transition:enter.opacity.duration.750ms
-          class="px-4 box-content flex flex-col flex-1 relative"
-        >
-          <p class="flex-1 relative">
-            <object class="w-full h-full" data="about.html"></object>
-          </p>
-        </div>
-      </template>
-      <template x-if="selected === 'option-3'">
-        <div x-transition:enter.opacity.duration.750ms class="px-4 box-content">
-          <h2 class="text-xl mb-4">
-            And here, only <strong>Option 3</strong> contents should be
-            displayed
-          </h2>
-          <p>Qui ipsorum...</p>
-        </div>
-      </template>
+      <div
+        x-show="selected === 'option-2'"
+        x-transition:enter.opacity.duration.750ms
+        class="px-4 box-content flex flex-col flex-1 relative"
+      >
+        <p class="flex-1 relative">
+          <object class="w-full h-full" data="about.html"></object>
+        </p>
+      </div>
     </div>
   </body>
 </html>

@@ -53,18 +53,40 @@
 
       function imageLoader() {
         return {
-          sections: ["Title 1", "Title 2", "Title 3"],
+          images: {},
+          getFolderNames: function () {
+            fetch("/getfolders/", {
+              method: "GET",
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+              },
+            })
+              .then((response) => response.json())
+              .then((json) => {
+                console.log(json);
+                this.images = json;
+              });
+          },
+        };
+      }
+
+      function buildImgUrl(title, image) {
+        return {
+          url: "art/" + title + "/" + image,
+          imageTitle: image
+            .replace(".png", "")
+            .replace(".jpg", "")
+            .replace(".jpeg", ""),
         };
       }
     </script>
-    <!-- Hero Image -->
-    <div x-data="exhibitionLoader()" x-init="loadExhibition()">
-      <template x-if="galleryTitle">
-        <div
-          class="w-full max-h-96 relative overflow-hidden flex justify-center"
-        >
+    <div class="mx-auto" style="max-width: 2000px">
+      <!-- Hero Image -->
+      <div x-data="exhibitionLoader()" x-init="loadExhibition()">
+        <template x-if="galleryTitle">
           <div
-            class="h-full max-h-96 bg-slate-100 border-2 border-gray-700 overflow-hidden relative"
+            class="w-full max-h-96 relative border-2 border-gray-700 overflow-hidden flex justify-center"
           >
             <div
               class="absolute uppercase bottom-0 px-4 py-2 w-full bg-white opacity-80"
@@ -81,22 +103,44 @@
                 ></p>
               </a>
             </div>
-            <img class="" :src="galleryImage" alt="Current Exhibition" />
+            <div><img :src="galleryImage" alt="Current Exhibition" /></div>
           </div>
-        </div>
-      </template>
-    </div>
-
-    <!-- Image Sections -->
-    <div class="mt-8 bg-slate-100">
-      <ul class="p-2" x-data="imageLoader()">
-        <template x-for="color in sections">
-          <li>
-            <h1 class="text-2xl" x-text="color"></h1>
-            <div>Images here</div>
-          </li>
         </template>
-      </ul>
+      </div>
+
+      <!-- Image Sections -->
+      <div x-data="imageLoader()" class="mt-4">
+        <div class="flex justify-center">
+          <ul class="text-gray-700 p-2" x-data="getFolderNames()">
+            <template x-if="images !== {}">
+              <template x-for="title in Object.keys(images)">
+                <li class="p-4 rounded-lg">
+                  <h3 class="text-4xl mb-2" x-text="title"></h3>
+                  <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16"
+                  >
+                    <template x-for="image in images[title]">
+                      <a
+                        class="flex flex-col justify-end gap-2 text-gray-500 terra-link"
+                        x-data="buildImgUrl(title, image)"
+                        :href="url"
+                        target="_blank"
+                      >
+                        <img class="max-w-lg" :src="url" alt="" />
+                        <p class="capitalize text-xl" x-text="imageTitle"></p>
+                      </a>
+                    </template>
+                  </div>
+                  <hr
+                    class="mb-16 mt-16 text-gray-500 bg-gray-500"
+                    style="height: 4px; border-width: 0"
+                  />
+                </li>
+              </template>
+            </template>
+          </ul>
+        </div>
+      </div>
     </div>
   </body>
 </html>
