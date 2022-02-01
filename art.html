@@ -52,35 +52,16 @@
       }
 
       function imageLoader() {
+        console.log("test");
         return {
           images: {},
-          getFolderNames: function () {
-            fetch("/getfolders/", {
-              method: "GET",
-              headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-              },
-            })
+          loadArt() {
+            fetch("Art.json")
               .then((response) => response.json())
               .then((json) => {
                 console.log(json);
                 this.images = json;
               });
-          },
-        };
-      }
-
-      function imageLoader2() {
-        return {
-          images: {
-            "En titel": [
-              "A love supreme (the last code).png",
-              "timmarna.png",
-              "title 1.png",
-            ],
-            "Some title": ["skrank.png", "timmarna.png"],
-            "teckningar": ["Spelplan.jpg"],
           },
         };
       }
@@ -123,8 +104,8 @@
       </div>
 
       <!-- Image Sections -->
-      <div x-data="imageLoader2()" class="mt-4">
-        <div class="flex justify-center">
+      <div x-data="imageLoader()" x-init="loadArt()" class="mt-4">
+        <div class="flex flex-col items-center justify-center">
           <ul class="text-gray-700 p-8">
             <template x-if="images !== {}">
               <template x-for="title in Object.keys(images)">
@@ -150,10 +131,15 @@
                     style="height: 4px; border-width: 0"
                   />
                 </li>
+
               </template>
             </template>
           </ul>
+          <div class="text-4xl mb-24 terra">Fler bilder kommer snart</p>
+
         </div>
+      </div>
+      <div>
       </div>
     </div>
   </body>
