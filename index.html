@@ -34,24 +34,27 @@
         selected: 'option-1', 
     }"
     >
-      <nav class="flex justify-between">
-        <h1 class="p-4 text-4xl uppercase">Johan Magnusson</h1>
-        <ul class="flex items-end text-2xl">
+      <nav
+        class="flex justify-between mx-auto w-full"
+        style="max-width: 2000px"
+      >
+        <h1 class="py-4 box-content text-4xl uppercase">Johan Magnusson</h1>
+        <ul class="flex items-end text-2xl gap-4">
           <li
-            class="p-4 terra-link whitespace-nowrap"
+            class="py-4 box-content terra-link whitespace-nowrap"
             x-bind:class="{ 'terra': selected === 'option-1' }"
             @click="selected = 'option-1'"
           >
             <a href="#art">VERK</a>
           </li>
           <li
-            class="p-4 terra-link whitespace-nowrap"
+            class="py-4 box-content terra-link whitespace-nowrap"
             x-bind:class="{ 'terra': selected === 'option-2' }"
             @click="selected = 'option-2'"
           >
             <a href="#about">OM MIG</a>
           </li>
-          <li class="p-4 py-5 whitespace-nowrap">
+          <li class="py-5 box-content whitespace-nowrap">
             <a
               href="https://www.instagram.com/johan_magnusson/"
               target="_blank"
@@ -85,7 +88,7 @@
       <div
         x-show="selected === 'option-1'"
         x-transition:enter.opacity.duration.750ms
-        class="px-4 box-content flex flex-col flex-1 relative"
+        class="box-content flex flex-col flex-1 relative"
       >
         <object class="w-full h-full" data="art.html"></object>
       </div>
@@ -93,7 +96,7 @@
       <div
         x-show="selected === 'option-2'"
         x-transition:enter.opacity.duration.750ms
-        class="px-4 box-content flex flex-col flex-1 relative"
+        class="box-content flex flex-col flex-1 relative"
       >
         <p class="flex-1 relative">
           <object class="w-full h-full" data="about.html"></object>
