@@ -52,14 +52,12 @@
       }
 
       function imageLoader() {
-        console.log("test");
         return {
           images: {},
           loadArt() {
             fetch("Art.json")
               .then((response) => response.json())
               .then((json) => {
-                console.log(json);
                 this.images = json;
               });
           },
