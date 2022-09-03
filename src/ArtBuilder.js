@@ -18,7 +18,7 @@ var directoryTreeToObj = function (dir, done) {
       });
     }
 
-    list.forEach(function (file) {
+    list.forEach(function (file, fileIndex) {
       file = path.resolve(dir, file);
       fs.stat(file, function (err, stat) {
         if (stat && stat.isDirectory()) {
@@ -54,15 +54,15 @@ var directoryTreeToObj = function (dir, done) {
             name.includes(".jpeg")
           ) {
             // rename files to avoid issues with åäö
-            /*const fileEnding = name.substring(name.lastIndexOf(".") + 1);
+            const fileEnding = name.substring(name.lastIndexOf(".") + 1);
             const newName = "file" + fileIndex + "." + fileEnding;
             const newPath =
-              file.substring(0, file.lastIndexOf("\\")) + "\\" + newName;
-            fs.rename(file, newPath, () => {});*/
+              file.substring(0, file.lastIndexOf("/")) + "/" + newName;
+            fs.rename(file, newPath, () => {});
 
             results.push({
               type: "file",
-              name: name,
+              name: newName,
               displayName: name.substring(0, name.lastIndexOf(".")),
             });
           }
@@ -74,7 +74,7 @@ var directoryTreeToObj = function (dir, done) {
             });
             if (!name.startsWith(".")) {
               const newName =
-                file.substring(0, file.lastIndexOf("\\")) + "\\." + name;
+                file.substring(0, file.lastIndexOf("/")) + "/." + name;
               fs.rename(file, newName, () => {});
             }
           }
