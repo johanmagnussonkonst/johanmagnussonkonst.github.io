@@ -10,7 +10,7 @@
   </div>
   <div v-else class="px-4">
     <h2 class="text-2xl md:text-3xl">
-      {{ $route.params.id2 || $route.params.id }}
+      {{ id2 || id }}
     </h2>
     <p class="pt-2 pb-8 max-w-3xl">
       {{ description }}
@@ -34,7 +34,7 @@
         <li v-for="(folder, index) in folders" :key="folder.name + index">
           <ArtLink
             :folder="folderName + folder.name"
-            :link="folderName + folder.name"
+            :link="id + '/' + folder.displayName"
             :title="folder.displayName"
             :image="getImage(folder)"
           />
@@ -63,6 +63,8 @@ export default {
       showModal: false,
       activeImage: "",
       oldPos: 0,
+      id: "",
+      id2: "",
     };
   },
 
@@ -91,7 +93,10 @@ export default {
 
   methods: {
     onNavigate() {
-      if (!this.$route.params.id) this.returnHome();
+      this.id = this.$route.params.id;
+      this.id2 = this.$route.params.id2;
+
+      if (!this.id) this.returnHome();
 
       let section = ArtJson.find(
         (section) => section.displayName === this.$route.params.id
@@ -100,7 +105,7 @@ export default {
       if (!section) this.returnHome();
 
       // handle nested folders
-      if (this.$route.params.id2) {
+      if (this.id2) {
         let section2 = section.children.find(
           (section2) => section2.displayName === this.$route.params.id2
         );
