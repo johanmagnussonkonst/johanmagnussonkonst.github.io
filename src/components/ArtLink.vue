@@ -3,7 +3,7 @@
     <div
       class="w-full p-4 box-content hover:bg-slate-50 transition-all relative overflow-hidden"
     >
-      <h3 class="capitalize text-2xl my-4 text-center">{{ title }}</h3>
+      <h3 class="uppercase text-2xl my-4 text-center">{{ title }}</h3>
       <img
         class="max-w-full max-h-72 mx-auto"
         :src="require(`../assets/art/` + formattedFolder + image + '')"
