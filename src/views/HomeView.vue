@@ -46,10 +46,14 @@ export default {
 
       // if no image return the first grandchild
       if (!res && section.children[0].type === "folder") {
-        res = section.children[0].name;
+        console.log(section);
+        res =
+          section.children[0].name + "/" + section.children[0].children[0].name;
+      } else {
+        res = res.name;
       }
 
-      return res.name;
+      return res;
     },
   },
 };
