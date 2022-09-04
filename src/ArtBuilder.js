@@ -1,4 +1,6 @@
 const fs = require("fs");
+const { v4: uuidv4 } = require('uuid');
+
 const dirTree = require("directory-tree");
 const fsPromises = fs.promises;
 
@@ -22,6 +24,8 @@ const recursor =  function (inData) {
         child.description = '';
         child.displayName = child.name;
         if(child.name.includes('.jpg') || child.name.includes('.png') || child.name.includes('.txt')) {
+            child.displayName = child.name.substring(0, child.name.lastIndexOf('.'));
+
 
             child.type = 'file';
 
@@ -38,8 +42,10 @@ const recursor =  function (inData) {
 
             child.path = newPath;
         } else {
+
+            const key = uuidv4();
             child.type = 'folder';
-            child.name = 'folder'+index;
+            child.name = 'folder'+key;
         }  
 
         if(child.children) recursor(child.children)
@@ -105,7 +111,7 @@ setTimeout(() => {
     });
 
 
-  }, 5000)
+  }, 1000)
 
 
 
