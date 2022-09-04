@@ -85,31 +85,72 @@ var directoryTreeToObj = function (dir, done) {
   });
 };
 
+
+
 var renameFolders = function (dir, done) {
   fs.readdir(dir, function (err, list) {
     if (err) return done(err);
+    
+    let length = list.length;
+    let index = 0;
+    folderIndex = 0;
 
-    var pending = list.length;
-    let fileIndex = 0;
-    list.forEach(function (file) {
-      file = path.resolve(dir, file);
+    let doStuff = function () {
+      if(!list[index]) return done(null, null)
+
+      file = path.resolve(dir, list[index])
+
       fs.stat(file, function (err, stat) {
-        if (stat && stat.isDirectory()) {
-          fileIndex += 1;
-          // eslint-disable-next-line no-unused-vars
-          renameFolders(file, function (err, res) {
-            const newName = "folder" + fileIndex;
-            const newPath =
-              file.substring(0, file.lastIndexOf("/")) + "/" + newName;
+        index += 1;
+        if(stat && stat.isDirectory()) {
+          folderIndex += 1;
+          const newName = "folder" + folderIndex;
+          const newPath =
+            file.substring(0, file.lastIndexOf("/")) + "/" + newName;
 
-            fs.rename(file, newPath, () => {});
-            if (!--pending) done(null);
-          });
+          fs.rename(file, newPath, (error) => {
+            if(error) console.error(error)
+            if(index <= length) {
+              doStuff()
+            }
+          })
+
         } else {
-          if (!--pending) done(null);
+          if(index <= length) {
+            doStuff()
+          }
         }
+      })
+    }
+    
+    doStuff()
+
+  });
+
+
+};
+
+var sortAndPrint = function(res) {
+  var collator = new Intl.Collator(undefined, {
+    numeric: true,
+    sensitivity: "base",
+  });
+
+  res.sort(function (a, b) {
+    return collator.compare(a.displayName, b.displayName);
+  });
+
+  res.forEach((child) => {
+    if (child.type === "folder" && child.children) {
+      child.children.sort(function (a, b) {
+        return collator.compare(a.displayName, b.displayName);
       });
-    });
+    }
+  });
+
+  fs.writeFile("Art.json", JSON.stringify(res), function (err) {
+    if (err) throw err;
+    console.log("Saved!");
   });
 };
 
@@ -119,30 +160,52 @@ directoryTreeToObj(dirTree, function (err, res) {
   console.log("building art.json");
   if (err) console.error(err);
 
-  // eslint-disable-next-line no-unused-vars
-  renameFolders(dirTree, function (err, res2) {
-    if (err) console.error(err);
+  renameFolders(dirTree, function (err2, res2) {
+    if(err2) console.error(err2);
 
-    var collator = new Intl.Collator(undefined, {
-      numeric: true,
-      sensitivity: "base",
-    });
+    fs.readdir(dirTree, function (err, list) {
 
-    res.sort(function (a, b) {
-      return collator.compare(a.displayName, b.displayName);
-    });
+      let length = list.length;
+      let index = 0
+      let folderIndex = 0;
 
-    res.forEach((child) => {
-      if (child.type === "folder" && child.children) {
-        child.children.sort(function (a, b) {
-          return collator.compare(a.displayName, b.displayName);
-        });
+
+      let doOtherStuff = function() {
+        if(!list[index]) {
+          sortAndPrint(res)
+          return
+        };
+
+        file = path.resolve(dirTree, list[index])
+
+        fs.stat(file, function (err, stat) {
+          index += 1;
+          if(stat && stat.isDirectory()) {
+
+            renameFolders(file, function(err3, res3) {
+              console.error(err3)
+              if(index <= length) {
+                doOtherStuff();
+              }
+
+            })   
+          } else {
+            if(index <= length) {
+              doOtherStuff();
+            }
+          }
+
+        })
+
       }
-    });
 
-    fs.writeFile("Art.json", JSON.stringify(res), function (err) {
-      if (err) throw err;
-      console.log("Saved!");
-    });
-  });
+      doOtherStuff();
+
+    })
+
+
+  }) 
+
+
+
 });
