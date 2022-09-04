@@ -32,7 +32,7 @@ const recursor =  function (inData) {
             child.path.substring(0, child.path.lastIndexOf("/")) + "/" + child.name;
 
             // rename files to avoid issues with special characters
-            fs.rename(child.path, newPath, (error) => {
+            fs.renameSync(child.path, newPath, (error) => {
                 if(error) console.error(error)
             });
         } else {
@@ -46,6 +46,8 @@ const recursor =  function (inData) {
 }
 
 const recursor2 =  function (inData) {
+
+
     inData.forEach((child, index) => {
         if(child.name.includes('.jpg') || child.name.includes('.png') || child.name.includes('.txt')) {
 
@@ -53,13 +55,10 @@ const recursor2 =  function (inData) {
             const newPath =
             child.path.substring(0, child.path.lastIndexOf("/")) + "/" + child.name;
 
-
-            setTimeout(() => {
-                fs.rename(child.path, newPath, (error) => {
-                    if(error) console.error(error)
-                });
-            }, 5000);
-            // rename files to avoid issues with special characters
+            // rename folders to avoid issues with special characters
+            fs.renameSync(child.path, newPath, (error) => {
+                if(error) console.error(error)
+            });
             
     
         }
@@ -70,18 +69,13 @@ const recursor2 =  function (inData) {
 console.log("Running art builder")
 recursor(result)
 
-setTimeout(() => {
-    recursor2(result)
+recursor2(result)
 
-    setTimeout(() => {
-        fs.writeFile("Art.json", JSON.stringify(result), function (err) {
-            if (err) throw err;
-            console.log("Saved!");
-        });
-    }, 3000)
+fs.writeFile("Art.json", JSON.stringify(result), function (err) {
+    if (err) throw err;
+    console.log("Saved!");
+});
 
-
-}, 3000); 
 
 
 
