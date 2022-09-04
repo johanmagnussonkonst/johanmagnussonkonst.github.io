@@ -51,19 +51,30 @@ const recursor =  function (inData) {
 const recursor2 =  function (inData) {
     inData.forEach((child, index) => {
         if(child.name.includes('.jpg') || child.name.includes('.png') || child.name.includes('.txt')) {
-            if(child.children) recursor2(child.children)
 
         } else {
             const newPath =
             child.path.substring(0, child.path.lastIndexOf("/")) + "/" + child.name;
-
             // rename folders to avoid issues with special characters
-            fs.renameSync(child.path, newPath, (error) => {
-                if(error) console.error(error)
-                if(child.children) recursor2(child.children)
+            fs.rename(child.path, newPath, (err) => {
+                if(err) console.error(err)
             });
-        }
+        } 
         
+       if (child.children) {
+            child.children.forEach((grandChild, index) => {
+                if(grandChild.name.includes('.jpg') || grandChild.name.includes('.png') || grandChild.name.includes('.txt')) {
+
+                } else {
+                    const newPath =
+                    grandChild.path.substring(0, grandChild.path.lastIndexOf("/")) + "/" + grandChild.name;
+                    // rename folders to avoid issues with special characters
+                    fs.rename(grandChild.path, newPath, (err) => {
+                        if(err) console.error(err)
+                    });
+                } 
+            })
+        }
     })
 }
 recursor(result)
