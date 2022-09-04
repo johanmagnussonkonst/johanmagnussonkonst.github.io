@@ -19,6 +19,7 @@ const recursor =  function (inData) {
       });
 
     inData.forEach((child, index) => {
+        child.description = '';
         child.displayName = child.name;
         if(child.name.includes('.jpg') || child.name.includes('.png') || child.name.includes('.txt')) {
 
@@ -38,18 +39,19 @@ const recursor =  function (inData) {
         } else {
             child.type = 'folder';
             child.name = 'folder'+index;
-        }
-        
-        child.description = '';
+        }  
+
         if(child.children) recursor(child.children)
+
     })
+
+
 }
 
 const recursor2 =  function (inData) {
-
-
     inData.forEach((child, index) => {
         if(child.name.includes('.jpg') || child.name.includes('.png') || child.name.includes('.txt')) {
+            if(child.children) recursor2(child.children)
 
         } else {
             const newPath =
@@ -58,15 +60,12 @@ const recursor2 =  function (inData) {
             // rename folders to avoid issues with special characters
             fs.renameSync(child.path, newPath, (error) => {
                 if(error) console.error(error)
+                if(child.children) recursor2(child.children)
             });
-            
-    
         }
         
-        if(child.children) recursor2(child.children)
     })
 }
-console.log("Running art builder")
 recursor(result)
 
 recursor2(result)
