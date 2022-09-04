@@ -68,13 +68,22 @@ const recursor2 =  function (inData) {
         if(child.children) recursor2(child.children)
     })
 }
-
+console.log("Running art builder")
 recursor(result)
-recursor2(result)
+
+setTimeout(() => {
+    recursor2(result)
+
+    setTimeout(() => {
+        fs.writeFile("Art.json", JSON.stringify(result), function (err) {
+            if (err) throw err;
+            console.log("Saved!");
+        });
+    }, 3000)
 
 
-fs.writeFile("Art.json", JSON.stringify(result), function (err) {
-    if (err) throw err;
-    console.log("Saved!");
-});
+}, 3000); 
+
+
+
 
