@@ -46,12 +46,6 @@ const recursor =  function (inData) {
 }
 
 const recursor2 =  function (inData) {
-    inData.sort(function (a, b) {
-        return collator.compare(a.name, b.name);
-      });
-
- 
-
     inData.forEach((child, index) => {
         if(child.name.includes('.jpg') || child.name.includes('.png') || child.name.includes('.txt')) {
 
@@ -59,10 +53,15 @@ const recursor2 =  function (inData) {
             const newPath =
             child.path.substring(0, child.path.lastIndexOf("/")) + "/" + child.name;
 
+
+            setTimeout(() => {
+                fs.rename(child.path, newPath, (error) => {
+                    if(error) console.error(error)
+                });
+            }, 5000);
             // rename files to avoid issues with special characters
-            fs.rename(child.path, newPath, (error) => {
-                if(error) console.error(error)
-            });
+            
+    
         }
         
         if(child.children) recursor2(child.children)
