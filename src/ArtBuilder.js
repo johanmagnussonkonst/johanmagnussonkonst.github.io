@@ -183,7 +183,7 @@ directoryTreeToObj(dirTree, function (err, res) {
           if(stat && stat.isDirectory()) {
 
             renameFolders(file, function(err3, res3) {
-              console.error(err3)
+              if(err3) console.error(err3)
               if(index <= length) {
                 doOtherStuff();
               }
