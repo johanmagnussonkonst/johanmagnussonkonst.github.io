@@ -35,6 +35,7 @@ export default {
 
   methods: {
     getImage(section) {
+      console.log(section);
       // returns the first image
       let res = section.children.find((element) => {
         return (
@@ -44,12 +45,17 @@ export default {
         );
       });
 
+      console.log(res);
+      console.log(section.children[0].type);
+
       // if no image return the first grandchild
       if (!res && section.children[0].type === "folder") {
         console.log(section);
         res =
           section.children[0].name + "/" + section.children[0].children[0].name;
-      } else {
+
+        console.log(res);
+      } else if (res) {
         res = res.name;
       }
 
