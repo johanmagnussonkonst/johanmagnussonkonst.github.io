@@ -32,10 +32,11 @@ const recursor =  function (inData) {
             const newPath =
             child.path.substring(0, child.path.lastIndexOf("/")) + "/" + child.name;
 
+
             // rename files to avoid issues with special characters
-            fs.renameSync(child.path, newPath, (error) => {
-                if(error) console.error(error)
-            });
+            fs.renameSync(child.path, newPath);
+
+            child.path = newPath;
         } else {
             child.type = 'folder';
             child.name = 'folder'+index;
@@ -48,44 +49,63 @@ const recursor =  function (inData) {
 
 }
 
-const recursor2 =  function (inData) {
+const renameFolders =  function (inData) {
     inData.forEach((child, index) => {
         if(child.name.includes('.jpg') || child.name.includes('.png') || child.name.includes('.txt')) {
 
         } else {
             const newPath =
             child.path.substring(0, child.path.lastIndexOf("/")) + "/" + child.name;
+
             // rename folders to avoid issues with special characters
-            fs.rename(child.path, newPath, (err) => {
-                if(err) console.error(err)
-            });
+            fs.renameSync(child.path, newPath);
+            child.path = newPath;
+
+            child.children.forEach((grandChild) => {
+                grandChild.path = newPath + '/' + grandChild.displayName;
+            })
+
         } 
-        
-       if (child.children) {
-            child.children.forEach((grandChild, index) => {
+    })
+}
+
+const renameInnerFolders =  function (inData) {
+    inData.forEach((child, index) => {
+        if(child.children) {
+            child.children.forEach((grandChild) => {
                 if(grandChild.name.includes('.jpg') || grandChild.name.includes('.png') || grandChild.name.includes('.txt')) {
 
                 } else {
                     const newPath =
                     grandChild.path.substring(0, grandChild.path.lastIndexOf("/")) + "/" + grandChild.name;
+
                     // rename folders to avoid issues with special characters
-                    fs.rename(grandChild.path, newPath, (err) => {
-                        if(err) console.error(err)
-                    });
+                    fs.renameSync(grandChild.path, newPath);
+
+                    child.path = newPath;
                 } 
             })
+      
         }
+
     })
 }
+
 recursor(result)
 
-recursor2(result)
+renameFolders(result)
 
-fs.writeFile("Art.json", JSON.stringify(result), function (err) {
-    if (err) throw err;
-    console.log("Saved!");
-});
+console.log('waiting')
 
+setTimeout(() => {
+    renameInnerFolders(result) 
+    fs.writeFile("Art.json", JSON.stringify(result), function (err) {
+        if (err) throw err;
+        console.log("Saved!");
+    });
+
+
+  }, 5000)
 
 
 
