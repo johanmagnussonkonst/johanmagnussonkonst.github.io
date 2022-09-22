@@ -45,9 +45,6 @@ export default {
         );
       });
 
-      console.log(res);
-      console.log(section.children[0].type);
-
       // if no image return the first grandchild
       if (!res && section.children[0].type === "folder") {
         console.log(section);
