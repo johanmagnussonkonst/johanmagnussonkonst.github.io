@@ -12,9 +12,7 @@
     <h2 class="text-2xl md:text-3xl">
       {{ id2 || id }}
     </h2>
-    <p class="pt-2 pb-8 max-w-3xl">
-      {{ description }}
-    </p>
+    <p class="pt-2 pb-8 max-w-3xl" v-html="description"></p>
     <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <template v-if="images.length">
         <li
@@ -47,7 +45,7 @@
 <script>
 import ArtJson from "../art.json";
 import ArtLink from "@/components/ArtLink.vue";
-
+import texts from "../texts.json";
 export default {
   components: {
     ArtLink,
@@ -111,12 +109,13 @@ export default {
         );
 
         this.folderName = section.name + "/" + section2.name + "/";
-        this.description = section2.description;
+        this.description = texts[this.id2];
 
         this.images = section2.children;
       } else {
         this.folderName = section.name + "/";
-        this.description = section.description;
+        console.log(this.id);
+        this.description = texts[this.id];
 
         if (section.children.some((element) => element.type === "folder")) {
           this.folders = section.children.filter(
