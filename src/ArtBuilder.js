@@ -25,25 +25,45 @@ const recursor = function (inData) {
       child.name.includes(".png") ||
       child.name.includes(".txt")
     ) {
-      child.displayName = child.name.substring(0, child.name.lastIndexOf("."));
+      if (child.name.includes(".txt")) {
+        fs.renameSync(child.path, ".textfile.txt");
+      } else {
+        child.displayName = child.name.substring(
+          0,
+          child.name.lastIndexOf(".")
+        );
 
-      child.type = "file";
+        child.type = "file";
 
-      const fileEnding = child.name.substring(child.name.lastIndexOf(".") + 1);
+        const fileEnding = child.name.substring(
+          child.name.lastIndexOf(".") + 1
+        );
 
-      child.name = "file" + index + "." + fileEnding;
+        child.name = "file" + index + "." + fileEnding;
 
-      const newPath =
-        child.path.substring(0, child.path.lastIndexOf("/")) + "/" + child.name;
+        const newPath =
+          child.path.substring(0, child.path.lastIndexOf("/")) +
+          "/" +
+          child.name;
 
-      // rename files to avoid issues with special characters
-      fs.renameSync(child.path, newPath);
+        // rename files to avoid issues with special characters
+        fs.renameSync(child.path, newPath);
 
-      child.path = newPath;
+        child.path = newPath;
+      }
     } else {
       const key = uuidv4();
       child.type = "folder";
       child.name = "folder" + key;
+
+      if (child.children) {
+        child.children.forEach((file) => {
+          if (file.name.includes(".txt")) {
+            let content = fs.readFileSync(file.path, "utf8");
+            child.description = content;
+          }
+        });
+      }
     }
 
     if (child.children) recursor(child.children);
