@@ -76,7 +76,7 @@ export default {
         this.folders = [];
         this.activeImage = "";
         this.description = "";
-
+        this.closeModal();
         this.onNavigate();
       },
       deep: true,
