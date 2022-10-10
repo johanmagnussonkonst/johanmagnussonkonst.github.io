@@ -11,8 +11,10 @@
     />
 
     <h2 class="text-xl">Biografi</h2>
-    <p class="text-md mb-2">Född 1954 i Järfälla</p>
-    <p class="text-md mb-2">Verksam i Norrköping sedan 2022</p>
+    <ul class="text-md mb-2">
+      <li>Född 1954 i Järfälla</li>
+      <li>Verksam i Norrköping sedan 2022</li>
+    </ul>
 
     <h2 class="text-xl">Konstnärlig utbildning</h2>
     <ul class="text-md mb-2">
