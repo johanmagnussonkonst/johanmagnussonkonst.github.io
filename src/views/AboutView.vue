@@ -11,9 +11,8 @@
     />
 
     <h2 class="text-xl">Biografi</h2>
-    <p class="text-md mb-2">
-      Född 1954 i Järfälla Bor och verksam i Norrköping sedan 2022
-    </p>
+    <p class="text-md mb-2">Född 1954 i Järfälla</p>
+    <p class="text-md mb-2">Verksam i Norrköping sedan 2022</p>
 
     <h2 class="text-xl">Konstnärlig utbildning</h2>
     <ul class="text-md mb-2">
