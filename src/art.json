@@ -4,17 +4,24 @@
     "name": "aktuellt",
     "children": [
       {
-        "path": "assets/art/aktuellt/Där vi var (1)",
-        "name": "Där vi var (1).jpg",
+        "path": "assets/art/aktuellt/Tjugoåtta veckor (1)",
+        "name": "Tjugoåtta veckor (1).jpg",
         "description": "",
-        "displayName": "Där vi var (1)",
+        "displayName": "Tjugoåtta veckor (1)",
         "type": "file"
       },
       {
-        "path": "assets/art/aktuellt/Där vi var (2)",
-        "name": "Där vi var (2).jpg",
+        "path": "assets/art/aktuellt/Tjugoåtta veckor (2)",
+        "name": "Tjugoåtta veckor (2).jpg",
         "description": "",
-        "displayName": "Där vi var (2)",
+        "displayName": "Tjugoåtta veckor (2)",
+        "type": "file"
+      },
+      {
+        "path": "assets/art/aktuellt/Tjugoåtta veckor (3)",
+        "name": "Tjugoåtta veckor (3).jpg",
+        "description": "",
+        "displayName": "Tjugoåtta veckor (3)",
         "type": "file"
       },
       {
@@ -1416,17 +1423,24 @@
         "type": "file"
       },
       {
-        "path": "assets/art/folderc0de5b40-1f19-4411-a89f-714fbbd69ea5/Där vi var (1)",
-        "name": "Där vi var (1).jpg",
+        "path": "assets/art/folderc0de5b40-1f19-4411-a89f-714fbbd69ea5/Tjugoåtta veckor (1)",
+        "name": "Tjugoåtta veckor (1).jpg",
         "description": "",
-        "displayName": "Där vi var (1)",
+        "displayName": "Tjugoåtta veckor (1)",
         "type": "file"
       },
       {
-        "path": "assets/art/folderc0de5b40-1f19-4411-a89f-714fbbd69ea5/Där vi var (1)",
-        "name": "Där vi var (2).jpg",
+        "path": "assets/art/folderc0de5b40-1f19-4411-a89f-714fbbd69ea5/Tjugoåtta veckor (1)",
+        "name": "Tjugoåtta veckor (2).jpg",
         "description": "",
-        "displayName": "Där vi var (2)",
+        "displayName": "Tjugoåtta veckor (2)",
+        "type": "file"
+      },
+      {
+        "path": "assets/art/folderc0de5b40-1f19-4411-a89f-714fbbd69ea5/Tjugoåtta veckor (1)",
+        "name": "Tjugoåtta veckor (3).jpg",
+        "description": "",
+        "displayName": "Tjugoåtta veckor (3)",
         "type": "file"
       },
       {
