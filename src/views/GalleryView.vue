@@ -114,7 +114,6 @@ export default {
         this.images = section2.children;
       } else {
         this.folderName = section.name + "/";
-        console.log(this.id);
         this.description = texts[this.id];
 
         if (section.children.some((element) => element.type === "folder")) {

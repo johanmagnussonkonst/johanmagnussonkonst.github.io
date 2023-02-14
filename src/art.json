@@ -23,69 +23,6 @@
         "description": "",
         "displayName": "Tjugoåtta veckor (3)",
         "type": "file"
-      },
-      {
-        "path": "assets/art/aktuellt/Process-1",
-        "name": "Process-1.jpg",
-        "description": "",
-        "displayName": "Process-1",
-        "type": "file"
-      },
-      {
-        "path": "assets/art/aktuellt/Process-2",
-        "name": "Process-2.jpg",
-        "description": "",
-        "displayName": "Process-2",
-        "type": "file"
-      },
-      {
-        "path": "assets/art/aktuellt/Process-3",
-        "name": "Process-3.jpg",
-        "description": "",
-        "displayName": "Process-3",
-        "type": "file"
-      },
-      {
-        "path": "assets/art/aktuellt/Process-4",
-        "name": "Process-4.jpg",
-        "description": "",
-        "displayName": "Process-4",
-        "type": "file"
-      },
-      {
-        "path": "assets/art/aktuellt/Process-4",
-        "name": "Process-4.jpg",
-        "description": "",
-        "displayName": "Process-4",
-        "type": "file"
-      },
-      {
-        "path": "assets/art/aktuellt/Process-5",
-        "name": "Process-5.jpg",
-        "description": "",
-        "displayName": "Process-5",
-        "type": "file"
-      },
-      {
-        "path": "assets/art/aktuellt/Process-6",
-        "name": "Process-6.jpg",
-        "description": "",
-        "displayName": "Process-6",
-        "type": "file"
-      },
-      {
-        "path": "assets/art/aktuellt/Process-7",
-        "name": "Process-7.jpg",
-        "description": "",
-        "displayName": "Process-7",
-        "type": "file"
-      },
-      {
-        "path": "assets/art/aktuellt/Process-8",
-        "name": "Process-8.jpg",
-        "description": "",
-        "displayName": "Process-8",
-        "type": "file"
       }
     ],
     "description": "",
@@ -1465,38 +1402,38 @@
         "type": "file"
       },
       {
-        "path": "assets/art/folderc0de5b40-1f19-4411-a89f-714fbbd69ea5/Ryggraden 2",
+        "path": "assets/art/folderc0de5b40-1f19-4411-a89f-714fbbd69ea5/Is there something new? Red, yellow and blue",
         "name": "file8.jpg",
         "description": "",
-        "displayName": "Ryggraden 2",
+        "displayName": "Is there something new? Red, yellow and blue",
         "type": "file"
       },
       {
-        "path": "assets/art/folderc0de5b40-1f19-4411-a89f-714fbbd69ea5/Ryggraden 3",
+        "path": "assets/art/folderc0de5b40-1f19-4411-a89f-714fbbd69ea5/Is there something new? Red, yellow and blue",
         "name": "file9.jpg",
         "description": "",
-        "displayName": "Ryggraden 3",
+        "displayName": "Is there something new? Red, yellow and blue",
         "type": "file"
       },
       {
-        "path": "assets/art/folderc0de5b40-1f19-4411-a89f-714fbbd69ea5/Ryggraden 4",
+        "path": "assets/art/folderc0de5b40-1f19-4411-a89f-714fbbd69ea5/Is there something new? Red",
         "name": "file10.jpg",
         "description": "",
-        "displayName": "Ryggraden 4",
+        "displayName": "Is there something new? Red",
         "type": "file"
       },
       {
-        "path": "assets/art/folderc0de5b40-1f19-4411-a89f-714fbbd69ea5/Ryggraden 5",
+        "path": "assets/art/folderc0de5b40-1f19-4411-a89f-714fbbd69ea5/Is there something new? Yellow",
         "name": "file11.jpg",
         "description": "",
-        "displayName": "Ryggraden 5",
+        "displayName": "Is there something new? Yellow",
         "type": "file"
       },
       {
-        "path": "assets/art/folderc0de5b40-1f19-4411-a89f-714fbbd69ea5/Ryggraden 6",
+        "path": "assets/art/folderc0de5b40-1f19-4411-a89f-714fbbd69ea5/Is there something new? Blue",
         "name": "file12.jpg",
         "description": "",
-        "displayName": "Ryggraden 6",
+        "displayName": "Is there something new? Blue",
         "type": "file"
       }
     ],
