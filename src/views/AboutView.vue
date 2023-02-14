@@ -18,8 +18,14 @@
 
     <h2 class="text-xl">Konstnärlig utbildning</h2>
     <ul class="text-md mb-2">
-      <li>Gerlesborgsskolan i Stockholm, 1984–86</li>
-      <li>Ölands Folkhögskola, 1983–84</li>
+      <li>Gerlesborgsskolan i Stockholm, 1984-86</li>
+      <li>Ölands Folkhögskola, 1983-84</li>
+    </ul>
+
+    <h2 class="text-xl">Kommande Utställningar</h2>
+    <ul class="text-md mb-2">
+      <li>Dagar som jag glömt - Konstfrämjandet Värmland</li>
+      <li>31 mars - 22 april</li>
     </ul>
 
     <h2 class="text-xl">Separatutställningar i urval</h2>
@@ -49,7 +55,7 @@
       <li>Gotlands konstmuseum, Värmländsk konst, 2001</li>
       <li>Värmlands Museum, Sverige bjuder till bords, 2000</li>
       <li>
-        Lützens Slottsmuseum, Vanitas-Vanitatis, Schweden bittet zu tisch,1999
+        Lützens Slottsmuseum, Vanitas-Vanitatis, Schweden bittet zu tisch, 1999
       </li>
     </ul>
 
@@ -63,13 +69,13 @@
     <h2 class="text-xl">Övrigt</h2>
     <ul class="text-md mb-2">
       <li>Konstintendent, Värmlands Museum, 2019</li>
-      <li>Konsthandläggare, Region Värmland, 2017–2019</li>
+      <li>Konsthandläggare, Region Värmland, 2017-2019</li>
       <li>
         Extern rådgivare, Rådet för Konstnärlig Gestaltning i Karlstads Kommun,
         2017-2021
       </li>
       <li>
-        Konstintendent / Tf. museichef, Kristinehamns konstmuseum, 2002–2013
+        Konstintendent / Tf. museichef, Kristinehamns konstmuseum, 2002-2013
       </li>
       <li>
         Assistent till Ann Edholm, Transir, Nya Tingshuset, Helsingborg, Statens
