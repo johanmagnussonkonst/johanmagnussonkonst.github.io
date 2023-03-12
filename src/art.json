@@ -4,6 +4,34 @@
     "name": "aktuellt",
     "children": [
       {
+        "path": "assets/art/aktuellt/Det som är, är det som inte är (1)",
+        "name": "Det som är, är det som inte är (1).jpg",
+        "description": "",
+        "displayName": "Det som är, är det som inte är (1)",
+        "type": "file"
+      },
+      {
+        "path": "assets/art/aktuellt/Det som är, är det som inte är (2)",
+        "name": "Det som är, är det som inte är (2).jpg",
+        "description": "",
+        "displayName": "Det som är, är det som inte är (2)",
+        "type": "file"
+      },
+      {
+        "path": "assets/art/aktuellt/Det som är, är det som inte är (3)",
+        "name": "Det som är, är det som inte är (3).jpg",
+        "description": "",
+        "displayName": "Det som är, är det som inte är (3)",
+        "type": "file"
+      },
+      {
+        "path": "assets/art/aktuellt/Förhöjd",
+        "name": "Förhöjd.jpg",
+        "description": "",
+        "displayName": "Förhöjd",
+        "type": "file"
+      },
+      {
         "path": "assets/art/aktuellt/Tjugoåtta veckor (1)",
         "name": "Tjugoåtta veckor (1).jpg",
         "description": "",
@@ -22,6 +50,34 @@
         "name": "Tjugoåtta veckor (3).jpg",
         "description": "",
         "displayName": "Tjugoåtta veckor (3)",
+        "type": "file"
+      },
+      {
+        "path": "assets/art/aktuellt/Utspädd (1)",
+        "name": "Utspädd (1).jpg",
+        "description": "",
+        "displayName": "Utspädd (1)",
+        "type": "file"
+      },
+      {
+        "path": "assets/art/aktuellt/Utspädd (2)",
+        "name": "Utspädd (2).jpg",
+        "description": "",
+        "displayName": "Utspädd (2)",
+        "type": "file"
+      },
+      {
+        "path": "assets/art/aktuellt/Utspädd (3)",
+        "name": "Utspädd (3).jpg",
+        "description": "",
+        "displayName": "Utspädd (3)",
+        "type": "file"
+      },
+      {
+        "path": "assets/art/aktuellt/Utspädd (4)",
+        "name": "Utspädd (4).jpg",
+        "description": "",
+        "displayName": "Utspädd (4)",
         "type": "file"
       }
     ],
