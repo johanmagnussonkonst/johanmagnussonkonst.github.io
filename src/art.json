@@ -32,27 +32,6 @@
         "type": "file"
       },
       {
-        "path": "assets/art/aktuellt/Tjugoåtta veckor (1)",
-        "name": "Tjugoåtta veckor (1).jpg",
-        "description": "",
-        "displayName": "Tjugoåtta veckor (1)",
-        "type": "file"
-      },
-      {
-        "path": "assets/art/aktuellt/Tjugoåtta veckor (2)",
-        "name": "Tjugoåtta veckor (2).jpg",
-        "description": "",
-        "displayName": "Tjugoåtta veckor (2)",
-        "type": "file"
-      },
-      {
-        "path": "assets/art/aktuellt/Tjugoåtta veckor (3)",
-        "name": "Tjugoåtta veckor (3).jpg",
-        "description": "",
-        "displayName": "Tjugoåtta veckor (3)",
-        "type": "file"
-      },
-      {
         "path": "assets/art/aktuellt/Utspädd (1)",
         "name": "Utspädd (1).jpg",
         "description": "",
@@ -78,6 +57,13 @@
         "name": "Utspädd (4).jpg",
         "description": "",
         "displayName": "Utspädd (4)",
+        "type": "file"
+      },
+      {
+        "path": "assets/art/aktuellt/Utspädd (5)",
+        "name": "Utspädd (5).jpg",
+        "description": "",
+        "displayName": "Utspädd (5)",
         "type": "file"
       }
     ],
