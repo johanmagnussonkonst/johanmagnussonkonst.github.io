@@ -102,6 +102,8 @@ export default {
 
       if (!section) this.returnHome();
 
+      console.log(this.id, this.id2);
+
       // handle nested folders
       if (this.id2) {
         let section2 = section.children.find(

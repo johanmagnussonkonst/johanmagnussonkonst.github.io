@@ -23,6 +23,10 @@ const recursor = function (inData) {
       recursor(item.children);
     } else {
       let displayName = item.name;
+      displayName = displayName.replace(".jpg", "");
+      displayName = displayName.replace(".png", "");
+      displayName = displayName.replace(".jpeg", "");
+
       if (item.name.includes("(q)")) {
         displayName = displayName.replace("(q)", "?");
       }
