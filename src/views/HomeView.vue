@@ -45,10 +45,10 @@ export default {
       });
 
       // if no image return the first grandchild
-      if (!res && section.children[0].type === "folder") {
+      if (!res) {
         res =
           section.children[0].name + "/" + section.children[0].children[0].name;
-      } else if (res) {
+      } else {
         res = res.name;
       }
 

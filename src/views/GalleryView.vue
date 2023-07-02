@@ -9,7 +9,7 @@
     />
   </div>
   <div v-else class="px-4">
-    <h2 class="text-2xl md:text-3xl">
+    <h2 class="text-2xl md:text-3xl uppercase">
       {{ id2 || id }}
     </h2>
     <p class="pt-2 pb-8 max-w-3xl" v-html="description"></p>
@@ -23,7 +23,7 @@
         >
           <img
             class="max-w-auto max-h-72 mx-auto"
-            :src="require(`../assets/art/` + folderName + image.name + '')"
+            :src="require(`../assets/art/` + folderName + image.name)"
           />
           <h3 class="text-xl pt-2 text-center">{{ image.displayName }}</h3>
         </li>
@@ -146,13 +146,15 @@ export default {
     },
     getImage(folder) {
       // returns the first image
-      return folder.children.find((element) => {
+      let res = folder.children.find((element) => {
         return (
           element.name.includes(".jpg") ||
           element.name.includes(".png") ||
           element.name.includes(".jpeg")
         );
       }).name;
+
+      return res;
     },
   },
 };
