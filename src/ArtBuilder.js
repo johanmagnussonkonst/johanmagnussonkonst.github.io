@@ -2,7 +2,9 @@ const fs = require("fs");
 
 const dirTree = require("directory-tree");
 
-const tree = dirTree("./assets/art", { extensions: /\.jpg|\.png|\.txt/ });
+const tree = dirTree("./assets/art", {
+  extensions: /\.jpg|\.jpeg|\.png|\.txt/,
+});
 
 let result = tree.children;
 
@@ -11,16 +13,23 @@ const collator = new Intl.Collator(undefined, {
   sensitivity: "base",
 });
 
-const recursor = function (inData) {
-  inData.forEach((item) => {
+const recursor = function (inData, reverse = false) {
+  if (reverse) {
+    inData.sort(function (a, b) {
+      return collator.compare(b.name, a.name);
+    });
+  } else {
     inData.sort(function (a, b) {
       return collator.compare(a.name, b.name);
     });
+  }
 
+  inData.forEach((item) => {
     if (item.children) {
       item.type = "folder";
       item.displayName = item.name;
-      recursor(item.children);
+      if (item.name === "utställningar") recursor(item.children, true);
+      else recursor(item.children);
     } else {
       let displayName = item.name;
       displayName = displayName.replace(".jpg", "");
