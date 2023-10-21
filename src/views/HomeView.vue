@@ -1,8 +1,8 @@
 <template>
   <section
-    class="border-2 max-h-96 border-gray-500 overflow-hidden box-sizing mb-8"
+    class="border-2 max-h-96 border-gray-500 overflow-hidden box-sizing mb-8 flex justify-center"
   >
-    <img src="@\assets\hero.png" />
+    <img src="@\assets\hero4.png" class="max-h-96 flex" />
   </section>
   <section class="box-sizing">
     <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
